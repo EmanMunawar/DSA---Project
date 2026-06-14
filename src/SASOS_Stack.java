@@ -15,7 +15,7 @@ class Tray{
         return "Tray ID = " + trayID + " Passenger Name = " + pName;
     }
 }
-public class SASOS{
+public class SASOS_Stack{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Stack<Tray> trayStack = new Stack<>();
