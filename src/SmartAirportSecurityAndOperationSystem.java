@@ -77,8 +77,14 @@ class Node {
 // ================
 class FlightBST {
     Node root;
-    void insert(Flight f) {
+    boolean insert(Flight f) {
+
+        if (search(f.flightNo) != null) {
+            return false;
+        }
+
         root = insertRec(root, f);
+        return true;
     }
     Node insertRec(Node root, Flight f) {
         if (root == null) {
@@ -186,6 +192,12 @@ class FlightBST {
 
     // INORDER TRAVERSAL
     void inorder() {
+
+        if (root == null) {
+            System.out.println("No Flights Available");
+            return;
+        }
+
         System.out.println("\nFlights List: (Inorder Traversal):");
         inorderRec(root);
     }
@@ -373,9 +385,12 @@ public class SmartAirportSecurityAndOperationSystem {
     //  DISPLAY
     static void displayTrays(int index) {
 
+        if (trayStack.isEmpty()) {
+            System.out.println("No Tray available to display!");
+            return;
+        }
 
         if (index >= trayStack.size()) {
-            System.out.println("No Tray available to display!");
             return;
         }
 
@@ -455,10 +470,11 @@ public class SmartAirportSecurityAndOperationSystem {
         String flight = sc.nextLine();
 
 
+
         Flight flightExists = bst.search(flight);
 
         if (flightExists == null) {
-            System.out.println("Flight Not Available");
+            System.out.println("Flight does not exist. Passenger cannot be added.");
             return;
         }
 
@@ -501,6 +517,10 @@ public class SmartAirportSecurityAndOperationSystem {
 
     // DISPLAY
     static void displayQueue(List<Passenger> list, int i) {
+
+        if (list == null || list.isEmpty()) {
+            return;
+        }
 
         if (i >= list.size()) {
             return;
@@ -588,8 +608,11 @@ public class SmartAirportSecurityAndOperationSystem {
         System.out.print("Seats: ");
         int s = sc.nextInt();
 
-        bst.insert(new Flight(no, d, s));
-        System.out.println("Flight Inserted Successfully");
+        if (bst.insert(new Flight(no, d, s))) {
+            System.out.println("Flight Inserted Successfully");
+        } else {
+            System.out.println("Flight Number Already Exists");
+        }
     }
 
 
@@ -672,6 +695,11 @@ public class SmartAirportSecurityAndOperationSystem {
 
         System.out.print("Enter Passport No: ");
         String p = sc.next();
+
+        if (records.containsKey(p)) {
+            System.out.println("Passport Number Already Exists");
+            return;
+        }
 
         sc.nextLine();
 
