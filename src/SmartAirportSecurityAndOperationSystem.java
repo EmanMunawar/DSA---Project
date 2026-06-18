@@ -186,7 +186,7 @@ class FlightBST {
 
     // INORDER TRAVERSAL
     void inorder() {
-        System.out.println("\nFlights List (Inorder Traversal):");
+        System.out.println("\nFlights List: (Inorder Traversal):");
         inorderRec(root);
     }
 
@@ -249,13 +249,13 @@ public class SmartAirportSecurityAndOperationSystem {
             System.out.println(" SMART AIRPORT SYSTEM");
             System.out.println("==============================");
 
-            System.out.println("1. Stack Module (Tray)");
-            System.out.println("2. Queue Module (Passenger)");
-            System.out.println("3. BST Module (Flight)");
-            System.out.println("4. HashMap Module (Records)");
+            System.out.println("1. Tray Management");
+            System.out.println("2. Passenger Management");
+            System.out.println("3. Flight Management");
+            System.out.println("4. Records Management");
             System.out.println("5. Exit");
 
-            System.out.print("Enter Choice: ");
+            System.out.print("Enter your choice: ");
             choice = sc.nextInt();
 
 
@@ -279,10 +279,11 @@ public class SmartAirportSecurityAndOperationSystem {
 
                 case 5:
                     System.out.println("Program Ended");
+                    System.out.println("Thank you for using 'Smart Airport & Security Operation System'!");
                     break;
 
                 default:
-                    System.out.println("Invalid Choice");
+                    System.out.println("Invalid Choice! Enter only from (1-5)");
             }
 
         } while (choice != 5);
@@ -328,6 +329,9 @@ public class SmartAirportSecurityAndOperationSystem {
                 case 5:
                     searchTray();
                     break;
+                case 6:
+                    System.out.println("Backing to Main Menu!");
+                    break;
             }
 
         } while (choice != 6);
@@ -350,7 +354,7 @@ public class SmartAirportSecurityAndOperationSystem {
     // REMOVE TRAY
     static void removeTray() {
         if (trayStack.isEmpty()) {
-            System.out.println("Stack is Empty");
+            System.out.println("No Tray can be removed because Stack of Tray is Empty");
             return;
         }
 
@@ -360,7 +364,7 @@ public class SmartAirportSecurityAndOperationSystem {
     // VIEW TOP TRAY
     static void viewTop() {
         if (trayStack.isEmpty()) {
-            System.out.println("Stack is Empty");
+            System.out.println("No Tray is available");
         } else {
             System.out.println(trayStack.peek());
         }
@@ -371,6 +375,7 @@ public class SmartAirportSecurityAndOperationSystem {
 
 
         if (index >= trayStack.size()) {
+            System.out.println("No Tray available to display!");
             return;
         }
 
@@ -409,7 +414,7 @@ public class SmartAirportSecurityAndOperationSystem {
             System.out.println("4. Display Passengers");
             System.out.println("5. Back to Main Menu");
 
-            System.out.print("Enter Choice: ");
+            System.out.print("Enter your choice: ");
             choice = sc.nextInt();
 
             switch (choice) {
@@ -428,6 +433,9 @@ public class SmartAirportSecurityAndOperationSystem {
 
                 case 4:
                     displayPassengers();
+                    break;
+                case 5:
+                    System.out.println("Backing to Main Menu!");
                     break;
             }
 
@@ -467,7 +475,7 @@ public class SmartAirportSecurityAndOperationSystem {
             System.out.println("Normal Processed: " + passengerQueue.poll());
         }
         else {
-            System.out.println("No Passengers");
+            System.out.println("No Passengers are waiting in the Queue");
         }
     }
 
@@ -537,7 +545,7 @@ public class SmartAirportSecurityAndOperationSystem {
                     break;
 
                 case 4:
-                    // FIX #7: Improved findMin() with null checking
+
                     Flight minFlight = bst.findMin();
 
                     if (minFlight != null) {
@@ -548,7 +556,7 @@ public class SmartAirportSecurityAndOperationSystem {
                     break;
 
                 case 5:
-                    // FIX #8: Improved findMax() with null checking
+
                     Flight maxFlight = bst.findMax();
 
                     if (maxFlight != null) {
@@ -560,6 +568,9 @@ public class SmartAirportSecurityAndOperationSystem {
 
                 case 6:
                     bst.inorder();
+                    break;
+                case 7:
+                    System.out.println("Backing to Main Menu!");
                     break;
             }
 
@@ -625,7 +636,7 @@ public class SmartAirportSecurityAndOperationSystem {
             System.out.println("5. Display Records");
             System.out.println("6. Back to Main Menu");
 
-            System.out.print("Enter Choice: ");
+            System.out.print("Enter your choice: ");
             choice = sc.nextInt();
 
             switch (choice) {
@@ -649,6 +660,9 @@ public class SmartAirportSecurityAndOperationSystem {
                 case 5:
                     displayRecords();
                     break;
+                case 6:
+                    System.out.println("Backing to Main Menu!");
+                    break;
             }
 
         } while (choice != 6);
@@ -656,15 +670,15 @@ public class SmartAirportSecurityAndOperationSystem {
 
     static void addRecord() {
 
-        System.out.print("Passport No: ");
+        System.out.print("Enter Passport No: ");
         String p = sc.next();
 
         sc.nextLine();
 
-        System.out.print("Name: ");
+        System.out.print("Enter Name: ");
         String n = sc.nextLine();
 
-        System.out.print("Nationality: ");
+        System.out.print("What is your Nationality: ");
         String nat = sc.nextLine();
 
         records.put(p, new PassengerRecord(p, n, nat));
@@ -699,10 +713,10 @@ public class SmartAirportSecurityAndOperationSystem {
 
         sc.nextLine();
 
-        System.out.print("New Name: ");
+        System.out.print("Enter New Name: ");
         String n = sc.nextLine();
 
-        System.out.print("New Nationality: ");
+        System.out.print("Enter New Nationality: ");
         String nat = sc.nextLine();
 
         records.put(p, new PassengerRecord(p, n, nat));
