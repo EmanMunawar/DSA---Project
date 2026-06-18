@@ -344,6 +344,8 @@ public class SmartAirportSecurityAndOperationSystem {
                 case 6:
                     System.out.println("Backing to Main Menu!");
                     break;
+                default:
+                    System.out.println("Invalid Choice!");
             }
 
         } while (choice != 6);
@@ -452,6 +454,8 @@ public class SmartAirportSecurityAndOperationSystem {
                 case 5:
                     System.out.println("Backing to Main Menu!");
                     break;
+                default:
+                    System.out.println("Invalid Choice!");
             }
 
         } while (choice != 5);
@@ -592,6 +596,9 @@ public class SmartAirportSecurityAndOperationSystem {
                 case 7:
                     System.out.println("Backing to Main Menu!");
                     break;
+                default:
+                    System.out.println("Invalid Choice!");
+
             }
 
         } while (choice != 7);
@@ -686,6 +693,8 @@ public class SmartAirportSecurityAndOperationSystem {
                 case 6:
                     System.out.println("Backing to Main Menu!");
                     break;
+                default:
+                    System.out.println("Invalid Choice!");
             }
 
         } while (choice != 6);
